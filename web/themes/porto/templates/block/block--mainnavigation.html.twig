@@ -1,0 +1,11 @@
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+<nav>
+{# Menu. #}
+  {% block content %}
+    {{ content }}
+  {% endblock %}
+</nav>
+ {{ title_suffix }}
+</div>
+

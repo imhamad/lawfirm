@@ -1,0 +1,370 @@
+diff --git a/core/modules/system/system.install b/core/modules/system/system.install
+index abe796822a..57b7a1e798 100644
+--- a/core/modules/system/system.install
++++ b/core/modules/system/system.install
+@@ -1004,9 +1004,9 @@ function system_requirements($phase) {
+         $core_incompatible_extensions['module'],
+         new PluralTranslatableMarkup(
+           count($core_incompatible_extensions['module']),
+-        'The following module is installed, but it is incompatible with Drupal @version:',
+-        'The following modules are installed, but they are incompatible with Drupal @version:',
+-        ['@version' => \Drupal::VERSION]
++          'The following module is installed, but it is incompatible with Drupal @version:',
++          'The following modules are installed, but they are incompatible with Drupal @version:',
++          ['@version' => \Drupal::VERSION]
+         ),
+         new PluralTranslatableMarkup(
+           count($core_incompatible_extensions['module']),
+@@ -1479,7 +1479,7 @@ function system_schema() {
+         'unsigned' => TRUE,
+         'not null' => TRUE,
+       ],
+-     ],
++    ],
+     'primary key' => ['value'],
+   ];
+ 
+@@ -1721,16 +1721,16 @@ function system_update_8005() {
+       case 'bartik':
+         $name = 'block.block.bartik_local_actions';
+         $values = [
+-          'id' => 'bartik_local_actions',
+-          'weight' => -1,
+-        ] + $local_actions_default_settings;
++            'id' => 'bartik_local_actions',
++            'weight' => -1,
++          ] + $local_actions_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+ 
+         $name = 'block.block.bartik_local_tasks';
+         $values = [
+-          'id' => 'bartik_local_tasks',
+-          'weight' => -7,
+-        ] + $tabs_default_settings;
++            'id' => 'bartik_local_tasks',
++            'weight' => -7,
++          ] + $tabs_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+ 
+         // Help region has been removed so all the blocks inside has to be moved
+@@ -1759,43 +1759,43 @@ function system_update_8005() {
+       case 'seven':
+         $name = 'block.block.seven_local_actions';
+         $values = [
+-          'id' => 'seven_local_actions',
+-          'weight' => -10,
+-        ] + $local_actions_default_settings;
++            'id' => 'seven_local_actions',
++            'weight' => -10,
++          ] + $local_actions_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+ 
+         $name = 'block.block.seven_primary_local_tasks';
+         $values = [
+-          'region' => 'header',
+-          'id' => 'seven_primary_local_tasks',
+-          'settings.label' => 'Primary tabs',
+-          'settings.primary' => TRUE,
+-          'settings.secondary' => FALSE,
+-        ] + $tabs_default_settings;
++            'region' => 'header',
++            'id' => 'seven_primary_local_tasks',
++            'settings.label' => 'Primary tabs',
++            'settings.primary' => TRUE,
++            'settings.secondary' => FALSE,
++          ] + $tabs_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+ 
+         $name = 'block.block.seven_secondary_local_tasks';
+         $values = [
+-          'region' => 'pre_content',
+-          'id' => 'seven_secondary_local_tasks',
+-          'settings.label' => 'Secondary tabs',
+-          'settings.primary' => FALSE,
+-          'settings.secondary' => TRUE,
+-        ] + $tabs_default_settings;
++            'region' => 'pre_content',
++            'id' => 'seven_secondary_local_tasks',
++            'settings.label' => 'Secondary tabs',
++            'settings.primary' => FALSE,
++            'settings.secondary' => TRUE,
++          ] + $tabs_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+ 
+       case 'stark':
+         $name = 'block.block.stark_local_actions';
+         $values = [
+-          'id' => 'stark_local_actions',
+-        ] + $local_actions_default_settings;
++            'id' => 'stark_local_actions',
++          ] + $local_actions_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+ 
+         $name = 'block.block.stark_local_tasks';
+         $values = [
+-          'id' => 'stark_local_tasks',
+-        ] + $tabs_default_settings;
++            'id' => 'stark_local_tasks',
++          ] + $tabs_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+ 
+@@ -1808,16 +1808,16 @@ function system_update_8005() {
+         $custom_themes_installed = TRUE;
+         $name = 'block.block.' . $theme_name . '_local_actions';
+         $values = [
+-          'id' => $theme_name . '_local_actions',
+-          'weight' => -10,
+-        ] + $local_actions_default_settings;
++            'id' => $theme_name . '_local_actions',
++            'weight' => -10,
++          ] + $local_actions_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+ 
+         $name = sprintf('block.block.%s_local_tasks', $theme_name);
+         $values = [
+-          'id' => $theme_name . '_local_tasks',
+-          'weight' => -20,
+-        ] + $tabs_default_settings;
++            'id' => $theme_name . '_local_tasks',
++            'weight' => -20,
++          ] + $tabs_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+     }
+@@ -2069,35 +2069,35 @@ function system_update_8010() {
+       case 'bartik':
+         $name = 'block.block.bartik_page_title';
+         $values = [
+-          'id' => 'bartik_page_title',
+-        ] + $page_title_default_settings;
++            'id' => 'bartik_page_title',
++          ] + $page_title_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+ 
+       case 'stark':
+         $name = 'block.block.stark_page_title';
+         $values = [
+-          'id' => 'stark_page_title',
+-          'region' => 'content',
+-        ] + $page_title_default_settings;
++            'id' => 'stark_page_title',
++            'region' => 'content',
++          ] + $page_title_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+ 
+       case 'seven':
+         $name = 'block.block.seven_page_title';
+         $values = [
+-          'id' => 'seven_page_title',
+-          'region' => 'header',
+-        ] + $page_title_default_settings;
++            'id' => 'seven_page_title',
++            'region' => 'header',
++          ] + $page_title_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+ 
+       case 'classy':
+         $name = 'block.block.classy_page_title';
+         $values = [
+-          'id' => 'classy_page_title',
+-          'region' => 'content',
+-        ] + $page_title_default_settings;
++            'id' => 'classy_page_title',
++            'region' => 'content',
++          ] + $page_title_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+ 
+@@ -2105,10 +2105,10 @@ function system_update_8010() {
+         $custom_themes_installed = TRUE;
+         $name = sprintf('block.block.%s_page_title', $theme_name);
+         $values = [
+-          'id' => sprintf('%s_page_title', $theme_name),
+-          'region' => 'content',
+-          'weight' => '-50',
+-        ] + $page_title_default_settings;
++            'id' => sprintf('%s_page_title', $theme_name),
++            'region' => 'content',
++            'weight' => '-50',
++          ] + $page_title_default_settings;
+         _system_update_create_block($name, $theme_name, $values);
+         break;
+     }
+@@ -2129,17 +2129,17 @@ function system_update_8011() {
+   $theme_name = 'seven';
+   $name = 'block.block.seven_secondary_local_tasks';
+   $values = [
+-      'plugin' => 'local_tasks_block',
+-      'region' => 'pre_content',
+-      'id' => 'seven_secondary_local_tasks',
+-      'settings.label' => 'Secondary tabs',
+-      'settings.label_display' => 0,
+-      'settings.primary' => FALSE,
+-      'settings.secondary' => TRUE,
+-      'visibility' => [],
+-      'weight' => 0,
+-      'langcode' => $langcode,
+-    ];
++    'plugin' => 'local_tasks_block',
++    'region' => 'pre_content',
++    'id' => 'seven_secondary_local_tasks',
++    'settings.label' => 'Secondary tabs',
++    'settings.label_display' => 0,
++    'settings.primary' => FALSE,
++    'settings.secondary' => TRUE,
++    'visibility' => [],
++    'weight' => 0,
++    'langcode' => $langcode,
++  ];
+   _system_update_create_block($name, $theme_name, $values);
+ }
+ 
+@@ -2523,8 +2523,8 @@ function system_update_8501() {
+ }
+ 
+ /**
+-* Fix missing install profile after updating to Drupal 8.6.9 with Drush 8.
+-*/
++ * Fix missing install profile after updating to Drupal 8.6.9 with Drush 8.
++ */
+ function system_update_8601() {
+   $extension_config = \Drupal::configFactory()->getEditable('core.extension');
+   $install_profile = $extension_config->get('profile');
+@@ -2663,6 +2663,7 @@ function system_update_8802() {
+  * Install the 'path_alias' entity type.
+  */
+ function system_update_8803() {
++
+   // Enable the Path Alias module if needed.
+   if (!\Drupal::moduleHandler()->moduleExists('path_alias')) {
+     \Drupal::service('module_installer')->install(['path_alias'], FALSE);
+@@ -2674,6 +2675,124 @@ function system_update_8803() {
+  * Convert path aliases to entities.
+  */
+ function system_update_8804(&$sandbox = NULL) {
++  $schema['path_alias'] = [
++    'description' => 'The base table for path_alias entities.',
++    'fields' => [
++      'id' => [
++        'description' => 'Identifier',
++        'type' => 'serial',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++      ],
++      'revision_id' => [
++        'description' => 'Revision ID',
++        'type' => 'int',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++      ],
++      'uuid' => [
++        'description' => 'UUID',
++        'type' => 'varchar',
++        'length' => 128,
++        'not null' => TRUE,
++      ],
++      'langcode' => [
++        'description' => 'Langcode',
++        'type' => 'varchar',
++        'length' => 12,
++        'not null' => TRUE,
++      ],
++      'path' => [
++        'description' => 'Path',
++        'type' => 'varchar',
++        'length' => 255,
++      ],
++      'alias' => [
++        'description' => 'Alias',
++        'type' => 'varchar',
++        'length' => 255,
++      ],
++      'status' => [
++        'description' => 'Status',
++        'type' => 'int',
++        'size' => 'tiny',
++        'not null' => TRUE,
++      ],
++    ],
++    'indexes' => [
++      'path_alias__status' => ['status', 'id'],
++      'path_alias__alias_langcode_id_status' => ['alias', 'langcode','id', 'status'],
++      'path_alias__path_langcode_id_status' => ['path', 'langcode','id', 'status'],
++    ],
++    'unique keys' => [
++      'path_alias_field__uuid__value' => ['uuid'],
++      'path_alias__revision_id' => ['revision_id'],
++    ],
++    'foreign keys' => [],
++    'primary key' => [
++      'id',
++    ],
++  ];
++
++  $schema['path_alias_revision'] = [
++    'description' => 'The revision table for path_alias entities.',
++    'fields' => [
++      'id' => [
++        'description' => 'Identifier',
++        'type' => 'serial',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++      ],
++      'revision_id' => [
++        'description' => 'Revision ID',
++        'type' => 'int',
++        'unsigned' => TRUE,
++        'not null' => TRUE,
++      ],
++      'langcode' => [
++        'description' => 'Langcode',
++        'type' => 'varchar',
++        'length' => 12,
++        'not null' => TRUE,
++      ],
++      'path' => [
++        'description' => 'Path',
++        'type' => 'varchar',
++        'length' => 255,
++      ],
++      'alias' => [
++        'description' => 'Alias',
++        'type' => 'varchar',
++        'length' => 255,
++      ],
++      'status' => [
++        'description' => 'Status',
++        'type' => 'int',
++        'size' => 'tiny',
++        'not null' => TRUE,
++      ],
++      'revision_default' => [
++        'description' => 'Revision default',
++        'type' => 'int',
++        'size' => 'tiny',
++      ],
++    ],
++    'indexes' => [
++      'path_alias__id' => ['id'],
++    ],
++    'unique keys' => [],
++    'foreign keys' => [],
++    'primary key' => [
++      'revision_id',
++    ],
++  ];
++
++  if (!\Drupal::database()->schema()->tableExists('path_alias')) {
++    foreach ($schema as $name => $spec) {
++      \Drupal::database()->schema()->createTable($name, $spec);
++    }
++  }
++
+   // Bail out early if the entity type is not using the default storage class.
+   $storage = \Drupal::entityTypeManager()->getStorage('path_alias');
+   if (!$storage instanceof PathAliasStorage) {

@@ -1,0 +1,21 @@
+<div{{ attributes.addClass(classes) }}>
+{{ title_prefix }}
+	<div class="row mt-xl mb-xl">
+		<div class="col-sm-4 center">
+			<img src="{{ file_url(node.field_image.entity.fileuri) }}" class="img-responsive mb-xl" alt="">
+		</div>
+		<div class="col-sm-8">
+			<h1 class="mt-none mb-none">{{label}}</h1>
+			<p class="lead">{{content.field_practice_area}}</p>
+			<div class="divider divider-primary divider-small mb-xl">
+				<hr>
+			</div>
+			{{content.field_info_contact}}
+			{{content.field_icon_social}}
+		</div>
+	</div>
+	<div class="row mt-xl">
+		{{content.body}}
+	</div>
+{{ title_suffix }}
+</div>

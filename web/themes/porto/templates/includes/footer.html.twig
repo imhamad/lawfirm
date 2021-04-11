@@ -1,0 +1,27 @@
+<footer class="short" id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-5">
+				<a href="{{ front_page }}" class="logo mb-md">
+					<img alt="Porto Website Template" class="img-responsive" width="97" height="32" src="{{page.logo_footer|render|striptags}}">
+				</a>
+				{{page.footer_column1}}
+			</div>
+			<div class="col-md-3 col-md-offset-1">
+				{{page.footer_column2}}
+			</div>
+			<div class="col-md-3">
+				{{page.footer_column3}}
+			</div>
+		</div>
+	</div>
+	<div class="footer-copyright">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					{{page.footer_bottom}}
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>

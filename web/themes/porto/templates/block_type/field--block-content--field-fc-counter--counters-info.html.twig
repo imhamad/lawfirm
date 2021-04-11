@@ -1,0 +1,10 @@
+{% for key, item in items %}
+	{% set icon = item.content['#field_collection_item'].field_icon.value %}
+	<div class="col-md-3 col-sm-6">
+		<div class="counter mb-lg mt-lg">
+			{{ icon|raw }}
+			<strong data-to="{{ item.content['#field_collection_item'].field_data_to.value }}" data-append="{{ item.content['#field_collection_item'].field_data_append.value }}">{{ item.content['#field_collection_item'].field_number.value }}</strong>
+			<label>{{ item.content['#field_collection_item'].field_name_counter.value }}</label>
+		</div>
+	</div>
+{% endfor %}

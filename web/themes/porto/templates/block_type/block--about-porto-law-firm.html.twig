@@ -1,0 +1,21 @@
+{%
+set classes = [
+'block',
+'block-' ~ configuration.provider|clean_class,
+'block-' ~ plugin_id|clean_class,
+]
+
+%}
+<div{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+	<h1 class="mt-xl mb-none">About Porto Law Firm</h1>
+	<div class="divider divider-primary divider-small mb-xl">
+		<hr>
+	</div>
+	{{content.field_summary}}
+
+	{{content.field_image}}
+	
+	{{content.body}}
+    {{ title_suffix }}
+</div>

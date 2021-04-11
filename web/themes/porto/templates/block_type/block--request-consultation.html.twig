@@ -1,0 +1,27 @@
+{%
+set classes = [
+'block',
+'block-' ~ configuration.provider|clean_class,
+'block-' ~ plugin_id|clean_class,
+]
+
+%}
+<div{{ attributes.addClass(classes) }}>
+	{{ title_prefix }}
+<section class="section section-background section-footer" style="background-image: url({{ content.field_background_request | render | striptags | trim }}); background-position: 50% 100%;" id="request-form-custom">
+	
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-6">
+				{{content.body}}
+
+				{{content.field_request_form}}
+
+			</div>
+		</div>
+	</div>
+	
+</section>
+
+{{ title_suffix }}
+	</div>

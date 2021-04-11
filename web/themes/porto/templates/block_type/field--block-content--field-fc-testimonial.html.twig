@@ -1,0 +1,16 @@
+{% for key, item in items %}
+{% set img = file_url(item.content['#field_collection_item'].field_tes_image.entity.fileuri) %}
+<div>
+	<div class="testimonial testimonial-style-3 testimonial-trasnparent-background testimonial-alternarive-font">
+		<blockquote>
+			<p class="text-light">{{ item.content['#field_collection_item'].field_tes_content.value }}</p>
+		</blockquote>
+		<div class="testimonial-author">
+			<div class="testimonial-author-thumbnail">
+				<img src="{{ img }}" class="img-responsive img-circle" alt="">
+			</div>
+			<p><strong>{{ item.content['#field_collection_item'].field_tes_author.value }}</strong><span class="text-light">{{ item.content['#field_collection_item'].field_tes_postion.value }}</span></p>
+		</div>
+	</div>
+</div>
+{% endfor %}

@@ -1,0 +1,25 @@
+<div class="container-fluid">
+	<div{{ attributes.addClass(classes) }}>
+    {{ title_prefix }}
+	<div class="row">
+		<div class="col-md-6 p-none">
+			<section class="section section-primary match-height mt-xl">
+				<div class="row">
+					<div class="col-half-section col-half-section-right">
+						{{content.body}}
+
+						<div class="owl-carousel owl-theme" data-plugin-options='{"items": 1, "margin": 10, "loop": false, "nav": false, "dots": true}'>
+							{{content.field_fc_testimonial}}
+						</div>
+
+					</div>
+				</div>
+			</section>
+		</div>
+		<div class="col-md-6 p-none visible-md visible-lg">
+			<section class="parallax section section-parallax match-height mt-xl" data-plugin-parallax data-plugin-options='{"speed": 1.5, "horizontalPosition": "100%"}' data-image-src="{{ content.field_fc_background[0]['#markup'] }}" style="min-height: 450px;"></section>
+		</div>
+	</div>
+	{{ title_suffix }}
+</div>
+</div>
